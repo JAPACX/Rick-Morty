@@ -1,0 +1,14 @@
+html {
+   background-image: url('../../img/background.jpg');
+   background-size: cover;
+   background-position: center;
+ }
+ 
+ .App {
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items:center;
+ }
+
+ 
