@@ -57,3 +57,7 @@
     transition: transform 0.2s ease-out;
   }
   
+  .zoom {
+    opacity: 0.8;
+  }
+  

@@ -1,0 +1,11 @@
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content:center;
+  align-items: center;
+  background: linear-gradient(to right, #2036c2, #66d2e4);
+  color: white;
+  padding: 1rem;
+  width: 100%;
+}
+  
