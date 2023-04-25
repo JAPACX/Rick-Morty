@@ -23,7 +23,6 @@ function App () {
 }
 
 function onClose(id){
-  console.log(characters);
 
   const newCharacters = characters.filter(char => char.id !== id);
 
