@@ -1,0 +1,42 @@
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+    margin: 15px;
+}
+
+.forms {
+    background-color:azure;
+    border: 1px solid ;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+form input {
+    margin: 15px;
+    border-radius: 5px;
+}
+
+form button {
+    margin: 10px;
+}
+
+.error {
+    border:1px solid red;
+    background-color: rgb(237, 151, 151);
+    color: yellow;
+}
+
+.success{
+    border: 1px solid green;
+    background-color: rgb(186, 249, 186);
+    
+}
+
+
