@@ -13,7 +13,7 @@ import Form from './components/Form/Form'
 import Nav from './components/Nav/Nav'
 
 // Hooks de React necesario para el proyecto
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
@@ -29,8 +29,10 @@ function App() {
   let username = 'jepacheco98@gmail.com'
   let password = 'pass123'
 
-  // Objeto que guarda los datos validos y los pasa por props a form
+  // Hook de react que va a redireccionar a otra URL
   const navigate = useNavigate();
+
+  // Funcion que valida que los datos en userData coincidan con la base de datos "autorizada"
 
   function login(userData) {
     if (userData.email === username && userData.password === password) {
@@ -64,6 +66,11 @@ function App() {
 
   const location = useLocation();
 
+  //valida que si el estado de access es distinto de true, siempre redirecciona a la pagina '/'
+  
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
 
   return (
     <div className='App' style={{ padding: '25px' }}>
