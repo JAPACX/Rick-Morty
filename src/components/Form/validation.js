@@ -1,4 +1,4 @@
-export default function validation (userData, setErrors, errors) {
+export default function validation (userData, setErrors) {
     const regexEmail = /^[a-zA-Z]\w*([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/; 
     const regexPassword = /^[a-zA-Z0-9]{1,10}$/;
 

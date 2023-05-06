@@ -76,7 +76,7 @@ function App() {
     <div className='App' style={{ padding: '25px' }}>
 
 
-      {location.pathname !== '/' && <Nav onSearch={onSearch} />}
+      {location.pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}/>}
 
       <Routes>
         <Route path='/'

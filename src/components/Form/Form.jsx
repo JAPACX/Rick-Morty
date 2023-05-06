@@ -24,7 +24,7 @@ export default function Form({login}) {
 
         setUserData({ ...userData, [property]: value }) // usamos Brackect notation para poder acceder a la propiedad correcta y setear el valor 
 
-        validation({ ...userData, [property]: value }, setErrors, errors)
+        validation({ ...userData, [property]: value }, setErrors)
 
     }
 
