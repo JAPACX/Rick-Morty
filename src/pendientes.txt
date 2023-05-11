@@ -1,4 +1,0 @@
-1. mejorar el css de toda la app
-
-2. hacer boton de logout en el navBar que cambie el estado de access y me redireccione
-

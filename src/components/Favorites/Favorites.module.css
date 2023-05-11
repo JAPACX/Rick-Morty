@@ -1,0 +1,6 @@
+.favorites {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Ejemplo de 3 columnas */
+    grid-template-rows: auto auto; /* Ejemplo de 2 filas */
+    place-content: center; /* Alinea el contenido horizontal y verticalmente en el centro */
+}

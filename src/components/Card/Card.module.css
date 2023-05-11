@@ -44,6 +44,12 @@
     
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
 .inferior {
     display: grid;
     grid-template-columns: 1fr 1fr;

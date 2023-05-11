@@ -7,6 +7,7 @@ import Home from './views/Home'
 import Me from './views/Me'
 import CardsDetails from './views/CardsDetails'
 import Form from './components/Form/Form'
+import Favorites from "./components/Favorites/Favorites"
 
 
 // Componente que se visualiza en todas las rutas menos en "/"
@@ -26,8 +27,8 @@ function App() {
 
   // Simulacion de seguridad
   const [access, setAccess] = useState(false)
-  let username = 'jepacheco98@gmail.com'
-  let password = 'pass123'
+  let username = ''
+  let password = ''
 
   // Hook de react que va a redireccionar a otra URL
   const navigate = useNavigate();
@@ -92,6 +93,9 @@ function App() {
         />
         <Route path='/about'
           element={<Me />}
+        />
+        <Route path='/favorites'
+          element={<Favorites />}
         />
 
 
