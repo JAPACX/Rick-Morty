@@ -48,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
                   return {
                     ...state,
                     myFavorites: [...state.allCharacters].sort((a, b) => b.id - a.id)
-                  };
+                  };    
                 }
               
 

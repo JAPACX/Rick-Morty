@@ -27,8 +27,8 @@ function App() {
 
   // Simulacion de seguridad
   const [access, setAccess] = useState(false)
-  let username = ''
-  let password = ''
+  let username = 'jepacheco98@gmail.com'
+  let password = '12345'
 
   // Hook de react que va a redireccionar a otra URL
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ function App() {
        navigate('/home');
     }
     else {
-      alert('Datos incorrectos')
+      alert('Datos incorrectos informacion en el Readme')
     }
  }
 
