@@ -27,6 +27,11 @@ http.createServer(function (req, res) {
             res.end('No hay personajes con ese ID')
         }
 
+        return 
+        
     }
+
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end('Not Found URL INVALID')
 
 }).listen(PORT, 'localhost') 
