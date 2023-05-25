@@ -17,7 +17,6 @@ http.createServer(function (req, res) {
     //  si la url contiene onsearch
     if (req.url.includes('onsearch')) {
         getCharById(res, idUrl)
-        console.log(onsearch);
         return 
     }
 
