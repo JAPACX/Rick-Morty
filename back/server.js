@@ -1,6 +1,6 @@
-const fs = require("fs")
+
 const http = require("http")
-const character = require('./utils/data')
+const {getCharById} = require('./controllers/getCharById')
 
 const PORT = 3001
 
@@ -10,28 +10,16 @@ http.createServer(function (req, res) {
 
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    const id = parseInt(req.url.split('/').pop(), 10) // req url trae toda la url del navegador, split la separa en un array por cada '/', pop me regresa el ultimo y parseInt lo convierte en un numero, y el menos uno se usa para que corresponda con los id del personaje 
+    const idUrl = parseInt(req.url.split('/').pop(), 10) // req url trae toda la url del navegador, split la separa en un array por cada '/', pop me regresa el ultimo y parseInt lo convierte en un numero, y el menos uno se usa para que corresponda con los id del personaje 
 
-    if (req.url.includes('/rickandmorty/')) {
+    getCharById(res, idUrl)
 
-        //words.filter(word => word.length > 6);
+    if (req.url.includes('onsearch')) {
 
-        if(character[id]){
-            const response = character.filter(char => char.id === id)
-            res.writeHead(200, { "Content-Type": "application/json" });
-            res.end(JSON.stringify(response[0]))
-        }
-
-        else {
-            res.writeHead(404, { "Content-Type": "text/plain" });
-            res.end('No hay personajes con ese ID')
-        }
-
-        return 
+        getCharById(res, idUrl)
         
     }
 
-    res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end('Not Found URL INVALID')
+
 
 }).listen(PORT, 'localhost') 

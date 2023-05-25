@@ -27,8 +27,8 @@ function App() {
 
   // Simulacion de seguridad
   const [access, setAccess] = useState(false)
-  let username = 'jepacheco98@gmail.com'
-  let password = '12345'
+  let username = ''
+  let password = ''
 
   // Hook de react que va a redireccionar a otra URL
   const navigate = useNavigate();
