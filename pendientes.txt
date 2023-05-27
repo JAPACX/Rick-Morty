@@ -2,3 +2,6 @@ url debe funciona mejor
 
 componente favoritos comportamiento 
 
+cuando no existe el id no salta el error 
+
+

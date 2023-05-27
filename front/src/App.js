@@ -57,7 +57,10 @@ function App() {
         } else {
           window.alert('No hay personajes con ese ID');
         }
-      });
+      })
+      .catch(()=>{
+        window.alert('No hay personajes con ese ID');
+      })
   }
 
   function onClose(id) {
