@@ -15,8 +15,7 @@ import Nav from './components/Nav/Nav'
 
 // Hooks de React necesario para el proyecto
 import { useState , useEffect} from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 
 // SPA

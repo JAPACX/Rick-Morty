@@ -18,7 +18,7 @@ http.createServer(function (req, res) {
     if (req.url.includes('onsearch')) {
         getCharById(res, idUrl)
         return 
-    }
+    } 
 
     //  si la url contiene detail
     if (req.url.includes('detail')) {
