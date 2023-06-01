@@ -1,32 +1,16 @@
 
-const http = require("http")
-const {getCharById} = require('./controllers/getCharById')
-const {getCharDetail} = require('./controllers/getCharDetail')
+const express = require('express');
+const router = require('./routes/index');
 
-const PORT = 3001
+const server = express();
+const PORT = 3001;
 
-http.createServer(function (req, res) {
+// Middleware que ejecuta el método json en express
+server.use(express.json());
 
-    console.log(`Server raised in port ${PORT}`);
+// Middleware para la ruta "/"
+server.use('/', router);
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    const idUrl = parseInt(req.url.split('/').pop(), 10) // req url trae toda la url del navegador, split la separa en un array por cada '/', pop me regresa el ultimo y parseInt lo convierte en un numero
-
-
-    //  si la url contiene onsearch
-    if (req.url.includes('onsearch')) {
-        getCharById(res, idUrl)
-        return 
-    } 
-
-    //  si la url contiene detail
-    if (req.url.includes('detail')) {
-        getCharDetail(res, idUrl)
-        return
-    }
-
-    res.writeHead(400, { "Content-Type": "text/plain" });
-    res.end(`Not Found 404 esta ruta no existe`)
-
-}).listen(PORT, 'localhost') 
+server.listen(PORT, () => {
+    console.log('Server raised in port ' + PORT);
+});
