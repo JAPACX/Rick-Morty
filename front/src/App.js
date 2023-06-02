@@ -44,9 +44,7 @@ function App() {
   }
 
   function onSearch(character) {
-      fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`) // servidor local que consume datos de fuera
-
-
+      fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`) // servidor local que consume datos de fuera BFF (Backend For Frontend)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
