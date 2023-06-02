@@ -45,8 +45,8 @@ function App() {
  }
 
   function onSearch(character) {
-    // fetch(`https://rickandmortyapi.com/api/character/${character}`)
-    fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`) // servidor local que consume datos de fuera
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+    // fetch(`http://localhost:3001/onsearch/${character}`) // servidor local que consume datos de fuera
 
 
       .then((response) => response.json())

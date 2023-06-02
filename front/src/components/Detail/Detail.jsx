@@ -9,7 +9,7 @@ export default function Detail(props) {
     const [character, setCharacter] = useState([]);
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${props.detailId}`)
+        fetch(`http://localhost:3001/rickandmorty/onsearch/${props.detailId}`)
             .then((response) => response.json())
             .then((char) => {
                 if (char.name) {

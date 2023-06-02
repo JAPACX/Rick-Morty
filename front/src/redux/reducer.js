@@ -1,5 +1,7 @@
 import { ADD_FAVORITES, DELETE_FAVORITE, ORDER, FILTER } from './actions'
 
+
+
 const initialState = {
     myFavorites: [],
     allCharacters: [],
