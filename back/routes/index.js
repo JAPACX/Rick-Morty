@@ -1,15 +1,16 @@
 const { Router } = require('express');
 const getCharById = require('../controllers/getCharById')
 const getCharDetail = require('../controllers/getCharDetail')
+const login = require('../controllers/login')
+const { postFav, deleteFav } = require('../controllers/handleFavorites');
 
-
-const routerfavs = require('../utils/favs');
 const router = Router();
 
 
-router.get("/rickandmorty/onsearch/:id", getCharById)
-router.get("/rickandmorty/detail/:id", getCharDetail )
-router.use("/rickandmorty/favorites/", routerfavs )
-
+router.get("/onsearch/:id", getCharById)
+router.get("/detail/:id", getCharDetail)
+router.get("/login", login)
+router.post("/fav", postFav)
+router.delete("/fav/:id", deleteFav)
 
 module.exports = router;

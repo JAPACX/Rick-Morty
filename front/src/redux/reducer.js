@@ -53,8 +53,6 @@ const rootReducer = (state = initialState, action) => {
                   };    
                 }
               
-
-
         default:
             return { ...state }
     }
