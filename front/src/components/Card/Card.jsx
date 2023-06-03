@@ -3,20 +3,14 @@ import styles from './Card.module.css'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// // importacion de las acciones que retornan lo que el reducer necesita para modificar los estados
+// se importan y se le pasan al mapdispatch y mapstate al final 
 import { addCharToFavorite, deleteFavorite } from '../../redux/actions'
 
 function Card(props) {
-   const {
-      myFavorites,
-      id,
-      name,
-      species,
-      gender,
-      image,
-      onClose,
-      addCharToFavorite,
-      deleteFavorite } = props
+   const { id, name, species, gender, image, onClose, showCloseButton } = props
+
+   // se tran por props los estados globales para que puedan ser
+   const { allCharacters, addCharToFavorite, deleteFavorite } = props
 
    const [isFav, setIsFav] = useState(false)
 
@@ -41,26 +35,32 @@ function Card(props) {
    }
 
    useEffect(() => {
-      myFavorites.forEach((fav) => {
+      allCharacters.forEach((fav) => {
          if (fav.id === props.id) {
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [allCharacters]);
    return (
 
 
 
       <div className={styles.card}>
 
-         <div className={styles.buttons}>
-            {isFav ? (
-               <button onClick={handleFavorite}>❤️</button>
-            ) : (
-               <button onClick={handleFavorite}>🤍</button>
+         <div className={`${showCloseButton ? styles.buttonsall : styles.buttons}`}>
+            <div>
+               {isFav ? (
+                  <button onClick={handleFavorite}>❤️</button>
+               ) : (
+                  <button onClick={handleFavorite}>🤍</button>
+               )}
+            </div>
+            {showCloseButton && (
+               <button className={styles.button} onClick={onClose}>X</button>
             )}
-            <button className={styles.button} onClick={onClose}>X</button>
          </div>
+
+
 
 
          <div className={styles.picture}>
@@ -86,7 +86,7 @@ function Card(props) {
 export function mapStateToProps(state) {
 
    return {
-      myFavorites: state.myFavorites,
+      allCharacters: state.allCharacters,
    }
 }
 

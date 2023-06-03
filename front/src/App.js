@@ -47,10 +47,12 @@ function App() {
       fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`) // servidor local que consume datos de fuera BFF (Backend For Frontend)
       .then((response) => response.json())
       .then((data) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+        const existsChar = characters.some((element) => element.id == data.id);
+
+        if (data.name && !existsChar) {
+          setCharacters((characters) => [...characters, data]);
         } else {
-          window.alert('No hay personajes con ese ID');
+          window.alert('Ya el personaje existe');
         }
       })
       .catch(() => {

@@ -1,0 +1,40 @@
+.
+├── App.css
+├── App.js
+├── components
+│   ├── About
+│   │   ├── About.jsx
+│   │   └── About.module.css
+│   ├── Card
+│   │   ├── Card.jsx
+│   │   └── Card.module.css
+│   ├── Cards
+│   │   ├── Cards.jsx
+│   │   └── Cards.module.css
+│   ├── Detail
+│   │   ├── Detail.jsx
+│   │   └── Detail.module.css
+│   ├── Favorites
+│   │   ├── Favorites.jsx
+│   │   └── Favorites.module.css
+│   ├── Form
+│   │   ├── Form.jsx
+│   │   ├── Form.module.css
+│   │   └── validation.js
+│   ├── Nav
+│   │   ├── Nav.jsx
+│   │   └── Nav.module.css
+│   └── SearchBar
+│       ├── SearchBar.jsx
+│       └── SearchBar.module.css
+├── index.css
+├── index.js
+├── redux
+│   ├── actions.js
+│   ├── reducer.js
+│   └── store.js
+├── reportWebVitals.js
+└── views
+    ├── CardsDetails.jsx
+    ├── Home.jsx
+    └── Me.jsx

@@ -20,7 +20,11 @@ const rootReducer = (state = initialState, action) => {
 
 
         case DELETE_FAVORITE:
-            return { ...state, myFavorites: action.payload };
+            return {
+                ...state,
+                myFavorites: action.payload,
+                allCharacters: action.payload
+            };
 
         case FILTER:
             if (action.payload === "Todos") {
@@ -40,13 +44,13 @@ const rootReducer = (state = initialState, action) => {
             if (action.payload === "Ascendente") {
                 return {
                     ...state,
-                    myFavorites: [...state.allCharacters].sort((a, b) => a.id - b.id)
+                    myFavorites: [...state.myFavorites].sort((a, b) => a.id - b.id)
                 };
             }
             if (action.payload === "Descendente") {
                 return {
                     ...state,
-                    myFavorites: [...state.allCharacters].sort((a, b) => b.id - a.id)
+                    myFavorites: [...state.myFavorites].sort((a, b) => b.id - a.id)
                 };
             }
 

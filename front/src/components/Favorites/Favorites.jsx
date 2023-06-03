@@ -9,7 +9,7 @@ import { filterCards, orderCards } from '../../redux/actions'
 
 function Favorites(props) {
 
-  const {myFavorites, filterCards, orderCards } = props
+  const { myFavorites, filterCards, orderCards } = props
 
   function filterByGender(event) {
     const gender = event.target.value;
@@ -17,7 +17,7 @@ function Favorites(props) {
     filterCards(gender)
   }
 
-  function orderList (event){
+  function orderList(event) {
     const typeOrder = event.target.value;
     orderCards(typeOrder)
   }
@@ -39,7 +39,8 @@ function Favorites(props) {
       </div>
 
       <div className={style.favorites}>
-        {myFavorites.map(({ id, name, species, gender, image, onClose }) => (
+        {myFavorites.map(({ id, name, species, gender, image }) => (
+
           <Card
             key={id}
             id={id}
@@ -47,8 +48,8 @@ function Favorites(props) {
             species={species}
             gender={gender}
             image={image}
-            onClose={() => { onClose(id) }}
           />
+
         ))}
       </div>
     </>
