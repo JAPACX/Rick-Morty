@@ -6,6 +6,8 @@ El login no funciona correctamente
 
 El background principal no es tan comodo a la vista 
 
+cuando tengo el filtrado activo puedo desagregar de fav sin problemas (no sucede)
+
 resueltos falta confirmar
 - los favoritos tienen errores
 - No deberian poder agregarse un personaje si ya esta agregado

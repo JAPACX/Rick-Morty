@@ -32,32 +32,28 @@ function App() {
   // Hook de react que va a redireccionar a otra URL
   const navigate = useNavigate();
 
-  function login(userData) {
+  async function login(userData) {
     const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-      const { access } = data;
-      setAccess(data);
-      access && navigate('/home');
-      navigate('/home');
-    });
+    const { data } = await axios(URL + `?email=${email}&password=${password}`)
+    const { access } = data;
+    setAccess(access);
+    access ? navigate('/home') : window.alert('User invalido')
   }
 
-  function onSearch(character) {
-      fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`) // servidor local que consume datos de fuera BFF (Backend For Frontend)
-      .then((response) => response.json())
-      .then((data) => {
-        const existsChar = characters.some((element) => element.id == data.id);
+  async function onSearch(character) {
+    try {
+      const { data } = await axios.get(`http://localhost:3001/rickandmorty/onsearch/${character}`)
+      const existsChar = characters.some((element) => element.id == data.id);
+      if (data.name && !existsChar) {
+        setCharacters((characters) => [...characters, data]);
+      } else {
+        window.alert('Ya el personaje existe');
+      }
 
-        if (data.name && !existsChar) {
-          setCharacters((characters) => [...characters, data]);
-        } else {
-          window.alert('Ya el personaje existe');
-        }
-      })
-      .catch(() => {
-        window.alert('No hay personajes con ese ID');
-      })
+    } catch (error) {
+      window.alert('No hay personajes con ese ID');
+    }
   }
 
   function onClose(id) {

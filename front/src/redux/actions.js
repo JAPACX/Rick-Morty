@@ -5,36 +5,38 @@ export const ORDER = "ORDER";
 export const FILTER = "FILTER";
 
 
-export function addCharToFavorite(char){
-    const endpoint = 'http://localhost:3001/rickandmorty/fav';
-    return (dispatch) => {
-       axios.post(endpoint, char).then(({ data }) => {
-          return dispatch({
-             type: ADD_FAVORITES,
-             payload: data,
-          });
-       });
-    };
- };
+export  function addCharToFavorite(char) {
+   const endpoint = 'http://localhost:3001/rickandmorty/fav';
+   return async (dispatch) => {
+      const { data } = await axios.post(endpoint, char)
+      return dispatch({
+         type: ADD_FAVORITES,
+         payload: data,
+      });
+   };
+};
 
-export function deleteFavorite(id){
-    const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
-    return (dispatch) => {
-       axios.delete(endpoint).then(({ data }) => {
-          return dispatch({
-             type: DELETE_FAVORITE,
-             payload: data,
-       });
-       });
-    };
- };
+export function deleteFavorite(id) {
+   const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+   return async (dispatch) => {
+      try {
+         const {data} = await axios.delete(endpoint)
+         return dispatch({
+            type: DELETE_FAVORITE,
+            payload: data,
+         });
+      } catch (error) {
+         console.log(error.message);
+      }
+   };
+};
 
-export function filterCards(gender){
-    return {type:FILTER, payload:gender}
+export function filterCards(gender) {
+   return { type: FILTER, payload: gender }
 }
 
-export function orderCards(id){
-    return {type:ORDER, payload:id}
+export function orderCards(id) {
+   return { type: ORDER, payload: id }
 }
 
 
